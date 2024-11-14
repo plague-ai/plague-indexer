@@ -18,3 +18,38 @@ The indexer serves as a high-performance data orchestration layer, connecting to
 - Maintains transaction history in MongoDB
 - Handles pagination and only indexes new transactions
 - Prevents duplicate processing with concurrency control
+
+## Getting Started
+
+### Prerequisites
+
+- **Node.js** (v14.x or higher)
+- **MongoDB** database access (you can use MongoDB Atlas for a cloud database)
+
+### Installation
+
+**Clone the repository**:
+
+```bash
+git https://github.com/plague-ai/plague-indexer.git
+cd plague-indexer
+npm install
+npm run dev
+```
+
+### Environmental Variables
+
+The project requires the following environment variables:
+
+- **MONGODB_URI**
+- **SOLSCAN_API_KEY**
+- **RPC_ENDPOINT**
+- **TOKEN_ADDRESS**
+
+## Contributing
+
+Contributions are welcome! Feel free to open an issue or submit a pull request.
+
+## License
+
+This project is licensed under the MIT License.
