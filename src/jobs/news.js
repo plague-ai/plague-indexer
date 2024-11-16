@@ -8,20 +8,14 @@ module.exports = async function updateNewsChannel() {
     const totalNews = newsData.length | 1;
     const totaltransactions = await TransactionModel.countDocuments();
     const lastNews = await NewsModel.findOne().sort({ _id: -1 });
-    const newsPhase = Math.floor(totaltransactions / 50);
+    const newsPhase = Math.floor(totaltransactions / 10);
 
 
-    if (newsPhase === 0) {
-      return
-    }
+    if (totaltransactions == 0) return
 
-    if (newsPhase > totalNews) {
-      return;
-    };
+    if (newsPhase > totalNews) return;
 
-    if (lastNews?.title === newsData[newsPhase - 1].title) {
-      return;
-    }
+    if (lastNews?.title === newsData[newsPhase - 1].title) return;
 
     if (newsPhase < newsData.length) {
       await NewsModel.create(newsData[newsPhase]);
